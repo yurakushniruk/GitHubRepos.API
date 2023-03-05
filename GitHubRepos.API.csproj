@@ -19,10 +19,12 @@
     <None Remove="Services\" />
     <None Remove="Services\GitHub\" />
     <None Remove="Models\" />
+    <None Remove="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\GitHub\" />
     <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>
