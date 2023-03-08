@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using GitHubRepos.API.Models;
 using Newtonsoft.Json;
 
 namespace GitHubRepos
@@ -14,11 +14,11 @@ namespace GitHubRepos
         private readonly string _baseUrl;
         private readonly string _userAgent;
 
-        public GitHubClient(HttpClient httpClient)
+        public GitHubClient(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _baseUrl = Configuration.GetSection("GitHub:BaseUrl").Value;
-            _userAgent = Configuration.GetSection("GitHub:UserAgent").Value;
+            _baseUrl = configuration.GetSection("GitHub:BaseUrl").Value;
+            _userAgent = configuration.GetSection("GitHub:UserAgent").Value;
         }
 
         public async Task<List<Repository>> GetRepositoriesAsync(string username)
